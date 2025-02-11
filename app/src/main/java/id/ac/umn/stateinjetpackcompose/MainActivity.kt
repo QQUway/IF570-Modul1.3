@@ -17,6 +17,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.unit.dp
+import androidx.compose.material3.Button
+import androidx.compose.foundation.layout.Column
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,12 +40,15 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun WaterCounter(modifier: Modifier = Modifier) {
-    val count = 0
-    Text(
-        text = "You've had $count glasses.",
-        modifier = modifier.padding(16.dp)
-    )
+    Column(modifier = modifier.padding(16.dp)) {
+        var count = 0
+        Text("You've had $count glasses.")
+        Button(onClick = { count++ }, Modifier.padding(top = 8.dp)) {
+            Text("Add one")
+        }
+    }
 }
+
 
 
 @Composable
